@@ -8,8 +8,6 @@ const TodoForm = ({ addTodo }) => {
   return (
     <Paper style={{ margin: "1rem 0", padding: "0 1rem" }}>
       <form
-        className={classes.root}
-        noValidate
         autoComplete="off"
         onSubmit={(e) => {
           e.preventDefault();
