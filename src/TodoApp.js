@@ -5,20 +5,16 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Grid from "@material-ui/core/Grid";
 import AppBar from "@material-ui/core/AppBar";
 
+import useLocalStorageState from "./Hooks/useLocalStorageState";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
 import useTodoState from "./Hooks/useTodoState";
 
 const TodoApp = () => {
-  const initialTodos = JSON.parse(window.localStorage.getItem("todos") || "[]");
+  const initialTodos = [{ id: 1, task: "Learn the HOOKS", completed: true }];
   const { todos, addTodo, removeTodo, updateTodo, toggleTodo } = useTodoState(
     initialTodos
   );
-
-  useEffect(() => {
-    window.localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
   return (
     <Paper
       style={{ padding: 0, margin: 0, height: "100vh", background: "#fafafa" }}
